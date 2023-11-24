@@ -36,22 +36,11 @@ namespace drawing
             pen = new Pen(Color.Black, 5);
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
-            eraser = new Pen(Color.White, 10);
+            eraser = new Pen(Color.White, 15);
             eraser.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             eraser.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void blackBox_Click(object sender, EventArgs e)
-        {
-            PictureBox color = (PictureBox)sender;
-            pen.Color = color.BackColor;
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
@@ -62,6 +51,15 @@ namespace drawing
             startX = e.X;
             startY = e.Y;
 
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                pen.Color = colorDialog.Color;
+            }
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
