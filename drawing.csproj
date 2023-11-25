@@ -89,5 +89,35 @@
   <ItemGroup>
     <None Include="icons\pencil.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\sizes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\size1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\size2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\size3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\size4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\colors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\brush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\brush2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
