@@ -30,11 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.controls = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonBrush = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,10 +43,18 @@
             this.buttonPencil = new System.Windows.Forms.Button();
             this.buttonLine = new System.Windows.Forms.Button();
             this.buttonErase = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controls.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // controls
@@ -63,31 +68,12 @@
             this.controls.Controls.Add(this.buttonPencil);
             this.controls.Controls.Add(this.buttonLine);
             this.controls.Controls.Add(this.buttonErase);
-            this.controls.Location = new System.Drawing.Point(12, 12);
+            this.controls.Location = new System.Drawing.Point(12, 31);
             this.controls.MaximumSize = new System.Drawing.Size(891, 180);
             this.controls.MinimumSize = new System.Drawing.Size(891, 73);
             this.controls.Name = "controls";
             this.controls.Size = new System.Drawing.Size(891, 73);
             this.controls.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(726, 3);
-            this.panel1.MaximumSize = new System.Drawing.Size(161, 174);
-            this.panel1.MinimumSize = new System.Drawing.Size(161, 66);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(161, 66);
-            this.panel1.TabIndex = 11;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 15;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // buttonBrush
             // 
@@ -103,6 +89,20 @@
             this.buttonBrush.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonBrush.UseVisualStyleBackColor = false;
             this.buttonBrush.Click += new System.EventHandler(this.buttonBrush_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Location = new System.Drawing.Point(726, 3);
+            this.panel1.MaximumSize = new System.Drawing.Size(161, 174);
+            this.panel1.MinimumSize = new System.Drawing.Size(161, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(161, 66);
+            this.panel1.TabIndex = 11;
             // 
             // button5
             // 
@@ -262,13 +262,18 @@
             this.buttonErase.UseVisualStyleBackColor = false;
             this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1357, 767);
+            this.pictureBox1.Size = new System.Drawing.Size(1085, 613);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
@@ -277,21 +282,58 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadFileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1085, 28);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.saveToolStripMenuItem.Text = "Save file";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadFileToolStripMenuItem
+            // 
+            this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.loadFileToolStripMenuItem.Text = "Load file";
+            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1357, 767);
+            this.ClientSize = new System.Drawing.Size(1085, 613);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.controls);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.controls.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -315,6 +357,10 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button buttonBrush;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
     }
 }
 
