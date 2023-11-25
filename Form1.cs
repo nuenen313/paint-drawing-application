@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -22,7 +23,7 @@ namespace drawing
         Point mouseStart, mouseEnd;
         int x, y, startX, endX, startY, endY;
         string operation = "pencil";
-        string text = string.Empty;
+        string text;
         Point textBoxPoint;
         bool isCollapsed;
         int penSize = 5;
@@ -32,8 +33,6 @@ namespace drawing
         {
             InitializeComponent();
 
-            //this.Width = 1100;
-            //this.Height = 600;
             bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(bitmap);
             graphics.Clear(Color.White);
@@ -98,9 +97,9 @@ namespace drawing
             {
                 TextBox textBox = (TextBox)sender;
                 textBox.ReadOnly = true;
+                text = textBox.Text;
                 e.Handled = true;
                 Controls.Remove(textBox);
-                operation = "pen";
             }
         }
 
@@ -157,6 +156,47 @@ namespace drawing
             penSize = 15;
             pen.Width = penSize;
             eraser.Width = penSize;
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JPEG Image|*.jpg";
+                saveFileDialog.Title = "Save file";
+                saveFileDialog.ShowDialog();
+
+                if (saveFileDialog.FileName != "")
+                {
+                    using (Bitmap bitmap2 = new Bitmap(pictureBox1.Width, pictureBox1.Height))
+                    {
+                        pictureBox1.DrawToBitmap(bitmap, pictureBox1.ClientRectangle);
+                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                    }
+                }
+            }
+        }
+
+        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "JPEG Image|*.jpg";
+                openFileDialog.Title = "Load file";
+                openFileDialog.ShowDialog();
+
+                if (openFileDialog.FileName != "")
+                {
+                    graphics.Dispose();
+                    bitmap.Dispose();
+                    Image image = Image.FromFile(openFileDialog.FileName);
+                    graphics = Graphics.FromImage(image);
+                    pictureBox1.Image = image;
+                    pictureBox1.Refresh();
+                }
+            }
         }
 
         private void canvas_Paint(object sender, PaintEventArgs e)
@@ -218,7 +258,6 @@ namespace drawing
                 Brush textBrush = new SolidBrush(color);
                 graphics.DrawString(text, textFont, textBrush, textBoxPoint);
             }
-
             pictureBox1.Refresh();
             text = string.Empty;
 
@@ -244,10 +283,11 @@ namespace drawing
             if (operation == "txt" && e.Button == MouseButtons.Left)
             {
                 TextBox textBox = new TextBox();
+                textBox.Multiline = true;
                 textBox.ForeColor = color;
                 textBox.Location = e.Location;
                 textBoxPoint = e.Location;
-                textBox.Size = new Size(100, 20);
+                textBox.Size = new Size(100, 50);
                 Controls.Add(textBox);
                 textBox.Font = font;
                 textBox.BringToFront();
@@ -266,7 +306,9 @@ namespace drawing
         private void buttonLine_Click(object sender, EventArgs e)
         {
             operation = "line";
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             pen.Color = color;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
         }
 
