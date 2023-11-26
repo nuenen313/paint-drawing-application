@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace drawing
         Pen eraser;
         Font font;
         Point mouseStart, mouseEnd;
+        Rectangle arcBounds;
         int x, y, startX, endX, startY, endY;
         string operation = "pencil";
         string text;
@@ -28,6 +30,7 @@ namespace drawing
         bool isCollapsed;
         int penSize = 5;
         Color color = Color.Black;
+        private List<Point> points = new List<Point>();
 
         public Form1()
         {
@@ -158,6 +161,31 @@ namespace drawing
             eraser.Width = penSize;
         }
 
+        private void buttonCurve_Click(object sender, EventArgs e)
+        {
+            operation = "curve";
+        }
+
+        private void buttonCircle_Click(object sender, EventArgs e)
+        {
+            operation = "circle";
+        }
+
+        private void buttonEllipse_Click(object sender, EventArgs e)
+        {
+            operation = "ellipse";
+        }
+
+        private void buttonSquare_Click(object sender, EventArgs e)
+        {
+            operation = "square";
+        }
+
+        private void buttonRectangle_Click(object sender, EventArgs e)
+        {
+            operation = "rect";
+        }
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -170,8 +198,8 @@ namespace drawing
                 {
                     using (Bitmap bitmap2 = new Bitmap(pictureBox1.Width, pictureBox1.Height))
                     {
-                        pictureBox1.DrawToBitmap(bitmap, pictureBox1.ClientRectangle);
-                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                        pictureBox1.DrawToBitmap(bitmap2, pictureBox1.ClientRectangle);
+                        bitmap2.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
                     }
                 }
             }
@@ -207,7 +235,50 @@ namespace drawing
             {
                 if (operation == "line")
                 {
-                    graphics.DrawLine(pen, startX, startY, x, y);
+                    graphics.DrawLine(pen, startX, startY, endX, endY);
+                }
+                if (operation == "ellipse")
+                {
+                    graphics.DrawEllipse(pen, startX, startY, endX, endY);
+                }
+                if (operation == "circle")
+                {
+                    int width = Math.Abs(startX - endX);
+                    int height = Math.Abs(startY - endY);
+                    if (width > height)
+                    {
+                        endX = startX + height;
+                    }
+                    else
+                    {
+                        endY = startY + width;
+                    }
+                    graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
+                }
+                if (operation == "rect")
+                {
+                    graphics.DrawRectangle(pen, startX, startY, endX, endY);
+                }
+                if (operation == "square")
+                {
+                    int width = Math.Abs(startX - endX);
+                    int height = Math.Abs(startY - endY);
+                    if (width > height)
+                    {
+                        endX = startX + height;
+                    }
+                    else
+                    {
+                        endY = startY + width;
+                    }
+                    graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
+                }
+                if (operation == "curve" && points.Count >= 3)
+                {
+                    
+                    points.Add(mouseEnd);
+                    graphics.DrawCurve(pen, points.ToArray());
+                    points.Remove(mouseEnd);
                 }
             }
             if (operation == "txt")
@@ -221,24 +292,75 @@ namespace drawing
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
             mouseMoving = false;
-
-            endX = x - startX;
-            endY = y - startY;
+            points.Add(mouseEnd);
 
             if (operation == "line")
             {
-                graphics.DrawLine(pen, startX, startY, x, y);
+                graphics.DrawLine(pen, startX, startY, endX, endY);
+                points.Clear();
             }
             if (operation == "txt")
             {
                 var textFont = font;
                 Brush textBrush = new SolidBrush(color);
                 graphics.DrawString(text, textFont, textBrush, textBoxPoint);
+                points.Clear();
+            }
+            if (operation == "ellipse")
+            {
+                graphics.DrawEllipse(pen, startX, startY, endX, endY);
+                points.Clear();
+            }
+            if (operation == "circle")
+            {
+                int width = Math.Abs(startX - endX);
+                int height = Math.Abs(startY - endY);
+                if (width > height)
+                {
+                    endX = startX + height;
+                }
+                else
+                {
+                    endY = startY + width;
+                }
+                graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
+                points.Clear();
+            }
+            if (operation == "rect")
+            {
+                graphics.DrawRectangle(pen, startX, startY, endX, endY);
+                points.Clear();
+            }
+            if (operation == "square")
+            {
+                int width = Math.Abs(startX - endX);
+                int height = Math.Abs(startY - endY);
+                if (width > height)
+                {
+                    endX = startX + height;
+                }
+                else
+                {
+                    endY = startY + width;
+                }
+                graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
+                points.Clear();
+            }
+            if (operation == "curve" && points.Count >= 3)
+            {
+                
+                graphics.DrawCurve(pen, points.ToArray());
+                points.Clear();
             }
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
         {
+            if (mouseMoving)
+            {
+                mouseEnd = e.Location;
+            }
+
             if (mouseMoving == true && (operation == "pencil" || operation == "brush"))
             {
                 mouseEnd = e.Location;
@@ -258,20 +380,22 @@ namespace drawing
                 Brush textBrush = new SolidBrush(color);
                 graphics.DrawString(text, textFont, textBrush, textBoxPoint);
             }
+
             pictureBox1.Refresh();
             text = string.Empty;
 
             x = e.X;
             y = e.Y;
-            endX = e.X - startX;
-            endY = e.Y - startY;
+            endX = x;
+            endY = y;
 
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseMoving = true;
             mouseStart = e.Location;
+            points.Add(mouseStart);
+            mouseMoving = true;
 
             startX = e.X;
             startY = e.Y;
@@ -293,6 +417,21 @@ namespace drawing
                 textBox.BringToFront();
                 textBox.TextChanged += textBox_TextChanged;
                 textBox.KeyPress += textBox_KeyPress;
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                if (operation == "ellipse")
+                {
+                    operation = "circle";
+                }
+                if (operation == "rect")
+                {
+                    operation = "square";
+                }
             }
         }
 

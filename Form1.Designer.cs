@@ -30,65 +30,50 @@
         {
             this.components = new System.ComponentModel.Container();
             this.controls = new System.Windows.Forms.Panel();
-            this.buttonBrush = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.buttonFont = new System.Windows.Forms.Button();
-            this.buttonText = new System.Windows.Forms.Button();
-            this.buttonColor = new System.Windows.Forms.Button();
-            this.buttonPencil = new System.Windows.Forms.Button();
-            this.buttonLine = new System.Windows.Forms.Button();
-            this.buttonErase = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonCurve = new System.Windows.Forms.Button();
+            this.buttonRectangle = new System.Windows.Forms.Button();
+            this.buttonSquare = new System.Windows.Forms.Button();
+            this.buttonEllipse = new System.Windows.Forms.Button();
+            this.buttonCircle = new System.Windows.Forms.Button();
+            this.buttonBrush = new System.Windows.Forms.Button();
+            this.buttonText = new System.Windows.Forms.Button();
+            this.buttonFont = new System.Windows.Forms.Button();
+            this.buttonPencil = new System.Windows.Forms.Button();
+            this.buttonColor = new System.Windows.Forms.Button();
+            this.buttonErase = new System.Windows.Forms.Button();
+            this.buttonLine = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.controls.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // controls
             // 
             this.controls.BackColor = System.Drawing.Color.White;
-            this.controls.Controls.Add(this.buttonBrush);
             this.controls.Controls.Add(this.panel1);
-            this.controls.Controls.Add(this.buttonFont);
-            this.controls.Controls.Add(this.buttonText);
-            this.controls.Controls.Add(this.buttonColor);
-            this.controls.Controls.Add(this.buttonPencil);
-            this.controls.Controls.Add(this.buttonLine);
-            this.controls.Controls.Add(this.buttonErase);
-            this.controls.Location = new System.Drawing.Point(12, 31);
+            this.controls.Location = new System.Drawing.Point(1345, 40);
             this.controls.MaximumSize = new System.Drawing.Size(891, 180);
             this.controls.MinimumSize = new System.Drawing.Size(891, 73);
             this.controls.Name = "controls";
             this.controls.Size = new System.Drawing.Size(891, 73);
             this.controls.TabIndex = 0;
-            // 
-            // buttonBrush
-            // 
-            this.buttonBrush.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonBrush.BackColor = System.Drawing.Color.White;
-            this.buttonBrush.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBrush.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonBrush.Image = global::drawing.Properties.Resources.brush2;
-            this.buttonBrush.Location = new System.Drawing.Point(616, 3);
-            this.buttonBrush.Name = "buttonBrush";
-            this.buttonBrush.Size = new System.Drawing.Size(66, 66);
-            this.buttonBrush.TabIndex = 12;
-            this.buttonBrush.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonBrush.UseVisualStyleBackColor = false;
-            this.buttonBrush.Click += new System.EventHandler(this.buttonBrush_Click);
             // 
             // panel1
             // 
@@ -97,7 +82,7 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(726, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.MaximumSize = new System.Drawing.Size(161, 174);
             this.panel1.MinimumSize = new System.Drawing.Size(161, 66);
             this.panel1.Name = "panel1";
@@ -172,115 +157,10 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // buttonFont
-            // 
-            this.buttonFont.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFont.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonFont.Image = global::drawing.Properties.Resources.font;
-            this.buttonFont.Location = new System.Drawing.Point(75, 3);
-            this.buttonFont.Name = "buttonFont";
-            this.buttonFont.Size = new System.Drawing.Size(66, 66);
-            this.buttonFont.TabIndex = 10;
-            this.buttonFont.Text = "Font";
-            this.buttonFont.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonFont.UseVisualStyleBackColor = false;
-            this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
-            // 
-            // buttonText
-            // 
-            this.buttonText.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonText.Image = global::drawing.Properties.Resources.text;
-            this.buttonText.Location = new System.Drawing.Point(3, 3);
-            this.buttonText.Name = "buttonText";
-            this.buttonText.Size = new System.Drawing.Size(66, 66);
-            this.buttonText.TabIndex = 9;
-            this.buttonText.Text = "Text";
-            this.buttonText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonText.UseVisualStyleBackColor = false;
-            this.buttonText.Click += new System.EventHandler(this.buttonText_Click);
-            // 
-            // buttonColor
-            // 
-            this.buttonColor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonColor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonColor.Image = global::drawing.Properties.Resources.colors;
-            this.buttonColor.Location = new System.Drawing.Point(147, 3);
-            this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(66, 66);
-            this.buttonColor.TabIndex = 2;
-            this.buttonColor.Text = "Color";
-            this.buttonColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonColor.UseVisualStyleBackColor = false;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
-            // 
-            // buttonPencil
-            // 
-            this.buttonPencil.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPencil.BackColor = System.Drawing.Color.White;
-            this.buttonPencil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPencil.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonPencil.Image = global::drawing.Properties.Resources.pencil;
-            this.buttonPencil.Location = new System.Drawing.Point(544, 3);
-            this.buttonPencil.Name = "buttonPencil";
-            this.buttonPencil.Size = new System.Drawing.Size(66, 66);
-            this.buttonPencil.TabIndex = 7;
-            this.buttonPencil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonPencil.UseVisualStyleBackColor = false;
-            this.buttonPencil.Click += new System.EventHandler(this.buttonPencil_Click);
-            // 
-            // buttonLine
-            // 
-            this.buttonLine.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonLine.BackColor = System.Drawing.Color.White;
-            this.buttonLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLine.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonLine.Image = global::drawing.Properties.Resources.line;
-            this.buttonLine.Location = new System.Drawing.Point(400, 3);
-            this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(66, 66);
-            this.buttonLine.TabIndex = 1;
-            this.buttonLine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonLine.UseVisualStyleBackColor = false;
-            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
-            // 
-            // buttonErase
-            // 
-            this.buttonErase.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonErase.BackColor = System.Drawing.Color.White;
-            this.buttonErase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonErase.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonErase.Image = global::drawing.Properties.Resources.eraser;
-            this.buttonErase.Location = new System.Drawing.Point(472, 3);
-            this.buttonErase.Name = "buttonErase";
-            this.buttonErase.Size = new System.Drawing.Size(66, 66);
-            this.buttonErase.TabIndex = 2;
-            this.buttonErase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonErase.UseVisualStyleBackColor = false;
-            this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
-            // 
             // timer1
             // 
             this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1085, 613);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseClick);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
             // contextMenuStrip1
             // 
@@ -296,7 +176,7 @@
             this.loadFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1085, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1513, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -314,24 +194,243 @@
             this.loadFileToolStripMenuItem.Text = "Load file";
             this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.buttonCurve);
+            this.panel2.Controls.Add(this.buttonRectangle);
+            this.panel2.Controls.Add(this.buttonSquare);
+            this.panel2.Controls.Add(this.buttonEllipse);
+            this.panel2.Controls.Add(this.buttonCircle);
+            this.panel2.Controls.Add(this.buttonBrush);
+            this.panel2.Controls.Add(this.buttonText);
+            this.panel2.Controls.Add(this.buttonFont);
+            this.panel2.Controls.Add(this.buttonPencil);
+            this.panel2.Controls.Add(this.buttonColor);
+            this.panel2.Controls.Add(this.buttonErase);
+            this.panel2.Controls.Add(this.buttonLine);
+            this.panel2.Location = new System.Drawing.Point(417, 40);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(925, 73);
+            this.panel2.TabIndex = 4;
+            // 
+            // buttonCurve
+            // 
+            this.buttonCurve.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonCurve.BackColor = System.Drawing.Color.White;
+            this.buttonCurve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurve.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonCurve.Image = global::drawing.Properties.Resources.curve;
+            this.buttonCurve.Location = new System.Drawing.Point(323, 3);
+            this.buttonCurve.Name = "buttonCurve";
+            this.buttonCurve.Size = new System.Drawing.Size(66, 66);
+            this.buttonCurve.TabIndex = 17;
+            this.buttonCurve.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonCurve.UseVisualStyleBackColor = false;
+            this.buttonCurve.Click += new System.EventHandler(this.buttonCurve_Click);
+            // 
+            // buttonRectangle
+            // 
+            this.buttonRectangle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonRectangle.BackColor = System.Drawing.Color.White;
+            this.buttonRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRectangle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonRectangle.Image = global::drawing.Properties.Resources.rectangle;
+            this.buttonRectangle.Location = new System.Drawing.Point(611, 3);
+            this.buttonRectangle.Name = "buttonRectangle";
+            this.buttonRectangle.Size = new System.Drawing.Size(66, 66);
+            this.buttonRectangle.TabIndex = 16;
+            this.buttonRectangle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonRectangle.UseVisualStyleBackColor = false;
+            this.buttonRectangle.Click += new System.EventHandler(this.buttonRectangle_Click);
+            // 
+            // buttonSquare
+            // 
+            this.buttonSquare.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonSquare.BackColor = System.Drawing.Color.White;
+            this.buttonSquare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSquare.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonSquare.Image = global::drawing.Properties.Resources.shape_square;
+            this.buttonSquare.Location = new System.Drawing.Point(539, 3);
+            this.buttonSquare.Name = "buttonSquare";
+            this.buttonSquare.Size = new System.Drawing.Size(66, 66);
+            this.buttonSquare.TabIndex = 15;
+            this.buttonSquare.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonSquare.UseVisualStyleBackColor = false;
+            this.buttonSquare.Click += new System.EventHandler(this.buttonSquare_Click);
+            // 
+            // buttonEllipse
+            // 
+            this.buttonEllipse.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonEllipse.BackColor = System.Drawing.Color.White;
+            this.buttonEllipse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEllipse.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonEllipse.Image = global::drawing.Properties.Resources.ellipse;
+            this.buttonEllipse.Location = new System.Drawing.Point(467, 3);
+            this.buttonEllipse.Name = "buttonEllipse";
+            this.buttonEllipse.Size = new System.Drawing.Size(66, 66);
+            this.buttonEllipse.TabIndex = 14;
+            this.buttonEllipse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonEllipse.UseVisualStyleBackColor = false;
+            this.buttonEllipse.Click += new System.EventHandler(this.buttonEllipse_Click);
+            // 
+            // buttonCircle
+            // 
+            this.buttonCircle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonCircle.BackColor = System.Drawing.Color.White;
+            this.buttonCircle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCircle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonCircle.Image = global::drawing.Properties.Resources.circle;
+            this.buttonCircle.Location = new System.Drawing.Point(395, 3);
+            this.buttonCircle.Name = "buttonCircle";
+            this.buttonCircle.Size = new System.Drawing.Size(66, 66);
+            this.buttonCircle.TabIndex = 13;
+            this.buttonCircle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonCircle.UseVisualStyleBackColor = false;
+            this.buttonCircle.Click += new System.EventHandler(this.buttonCircle_Click);
+            // 
+            // buttonBrush
+            // 
+            this.buttonBrush.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonBrush.BackColor = System.Drawing.Color.White;
+            this.buttonBrush.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBrush.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonBrush.Image = global::drawing.Properties.Resources.brush2;
+            this.buttonBrush.Location = new System.Drawing.Point(856, 3);
+            this.buttonBrush.Name = "buttonBrush";
+            this.buttonBrush.Size = new System.Drawing.Size(66, 66);
+            this.buttonBrush.TabIndex = 12;
+            this.buttonBrush.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonBrush.UseVisualStyleBackColor = false;
+            this.buttonBrush.Click += new System.EventHandler(this.buttonBrush_Click);
+            // 
+            // buttonText
+            // 
+            this.buttonText.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonText.Image = global::drawing.Properties.Resources.text;
+            this.buttonText.Location = new System.Drawing.Point(3, 3);
+            this.buttonText.Name = "buttonText";
+            this.buttonText.Size = new System.Drawing.Size(66, 66);
+            this.buttonText.TabIndex = 9;
+            this.buttonText.Text = "Text";
+            this.buttonText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonText.UseVisualStyleBackColor = false;
+            this.buttonText.Click += new System.EventHandler(this.buttonText_Click);
+            // 
+            // buttonFont
+            // 
+            this.buttonFont.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFont.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonFont.Image = global::drawing.Properties.Resources.font;
+            this.buttonFont.Location = new System.Drawing.Point(75, 3);
+            this.buttonFont.Name = "buttonFont";
+            this.buttonFont.Size = new System.Drawing.Size(66, 66);
+            this.buttonFont.TabIndex = 10;
+            this.buttonFont.Text = "Font";
+            this.buttonFont.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonFont.UseVisualStyleBackColor = false;
+            this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
+            // 
+            // buttonPencil
+            // 
+            this.buttonPencil.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonPencil.BackColor = System.Drawing.Color.White;
+            this.buttonPencil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPencil.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonPencil.Image = global::drawing.Properties.Resources.pencil;
+            this.buttonPencil.Location = new System.Drawing.Point(784, 3);
+            this.buttonPencil.Name = "buttonPencil";
+            this.buttonPencil.Size = new System.Drawing.Size(66, 66);
+            this.buttonPencil.TabIndex = 7;
+            this.buttonPencil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonPencil.UseVisualStyleBackColor = false;
+            this.buttonPencil.Click += new System.EventHandler(this.buttonPencil_Click);
+            // 
+            // buttonColor
+            // 
+            this.buttonColor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonColor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonColor.Image = global::drawing.Properties.Resources.colors;
+            this.buttonColor.Location = new System.Drawing.Point(147, 3);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(66, 66);
+            this.buttonColor.TabIndex = 2;
+            this.buttonColor.Text = "Color";
+            this.buttonColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonColor.UseVisualStyleBackColor = false;
+            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            // 
+            // buttonErase
+            // 
+            this.buttonErase.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonErase.BackColor = System.Drawing.Color.White;
+            this.buttonErase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonErase.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonErase.Image = global::drawing.Properties.Resources.eraser;
+            this.buttonErase.Location = new System.Drawing.Point(712, 3);
+            this.buttonErase.Name = "buttonErase";
+            this.buttonErase.Size = new System.Drawing.Size(66, 66);
+            this.buttonErase.TabIndex = 2;
+            this.buttonErase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonErase.UseVisualStyleBackColor = false;
+            this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
+            // 
+            // buttonLine
+            // 
+            this.buttonLine.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonLine.BackColor = System.Drawing.Color.White;
+            this.buttonLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLine.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonLine.Image = global::drawing.Properties.Resources.line;
+            this.buttonLine.Location = new System.Drawing.Point(251, 3);
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(66, 66);
+            this.buttonLine.TabIndex = 1;
+            this.buttonLine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonLine.UseVisualStyleBackColor = false;
+            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1513, 895);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseClick);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 613);
+            this.ClientSize = new System.Drawing.Size(1513, 895);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.controls);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.controls.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +460,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonCircle;
+        private System.Windows.Forms.Button buttonEllipse;
+        private System.Windows.Forms.Button buttonSquare;
+        private System.Windows.Forms.Button buttonRectangle;
+        private System.Windows.Forms.Button buttonCurve;
     }
 }
 
