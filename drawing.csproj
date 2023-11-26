@@ -119,5 +119,23 @@
   <ItemGroup>
     <None Include="icons\brush2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\shape_square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\curve.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
