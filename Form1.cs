@@ -22,7 +22,6 @@ namespace drawing
         Pen eraser;
         Font font;
         Point mouseStart, mouseEnd;
-        Rectangle arcBounds;
         int x, y, startX, endX, startY, endY;
         string operation = "pencil";
         string text;
@@ -31,6 +30,8 @@ namespace drawing
         int penSize = 5;
         Color color = Color.Black;
         private List<Point> points = new List<Point>();
+        List<Control> textBoxes = new List<Control>();
+
 
         public Form1()
         {
@@ -48,6 +49,8 @@ namespace drawing
             eraser.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             eraser.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+            buttonCurrentColor.BackColor = Color.Black;
 
             font = new Font("Century Gothic", 10);
         }
@@ -67,6 +70,7 @@ namespace drawing
                 {
                     pen.Color = colorDialog.Color;
                 }
+                buttonCurrentColor.BackColor = color;
             }
         }
 
@@ -88,10 +92,10 @@ namespace drawing
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox1 = (TextBox)sender;
-            int newWidth = TextRenderer.MeasureText(textBox1.Text, textBox1.Font).Width + 5;
-            textBox1.Width = newWidth;
-            text = textBox1.Text;
+                TextBox textBox1 = (TextBox)sender;
+                int newWidth = TextRenderer.MeasureText(textBox1.Text, textBox1.Font).Width + 5;
+                textBox1.Width = newWidth;
+                text = textBox1.Text;
         }
 
         private void textBox_KeyPress(object sender,  KeyPressEventArgs e)
@@ -103,6 +107,7 @@ namespace drawing
                 text = textBox.Text;
                 e.Handled = true;
                 Controls.Remove(textBox);
+                textBox.Dispose();
             }
         }
 
@@ -239,7 +244,7 @@ namespace drawing
                 }
                 if (operation == "ellipse")
                 {
-                    graphics.DrawEllipse(pen, startX, startY, endX, endY);
+                    graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
                 }
                 if (operation == "circle")
                 {
@@ -257,7 +262,7 @@ namespace drawing
                 }
                 if (operation == "rect")
                 {
-                    graphics.DrawRectangle(pen, startX, startY, endX, endY);
+                    graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
                 }
                 if (operation == "square")
                 {
@@ -308,7 +313,7 @@ namespace drawing
             }
             if (operation == "ellipse")
             {
-                graphics.DrawEllipse(pen, startX, startY, endX, endY);
+                graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
                 points.Clear();
             }
             if (operation == "circle")
@@ -328,7 +333,7 @@ namespace drawing
             }
             if (operation == "rect")
             {
-                graphics.DrawRectangle(pen, startX, startY, endX, endY);
+                graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
                 points.Clear();
             }
             if (operation == "square")
@@ -406,6 +411,15 @@ namespace drawing
         {
             if (operation == "txt" && e.Button == MouseButtons.Left)
             {
+                if (textBoxes.Count > 0)
+                {
+                    foreach (Control t in textBoxes)
+                    {
+                        this.Controls.Remove(t);
+                        t.Dispose();
+
+                    }
+                }
                 TextBox textBox = new TextBox();
                 textBox.Multiline = true;
                 textBox.ForeColor = color;
@@ -413,10 +427,12 @@ namespace drawing
                 textBoxPoint = e.Location;
                 textBox.Size = new Size(100, 50);
                 Controls.Add(textBox);
+                textBoxes.Add(textBox);
                 textBox.Font = font;
                 textBox.BringToFront();
                 textBox.TextChanged += textBox_TextChanged;
                 textBox.KeyPress += textBox_KeyPress;
+                
             }
         }
 

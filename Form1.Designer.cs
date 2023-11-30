@@ -57,6 +57,7 @@
             this.buttonErase = new System.Windows.Forms.Button();
             this.buttonLine = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonCurrentColor = new System.Windows.Forms.Button();
             this.controls.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -176,7 +177,7 @@
             this.loadFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1513, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1891, 38);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,6 +198,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.buttonCurrentColor);
             this.panel2.Controls.Add(this.buttonCurve);
             this.panel2.Controls.Add(this.buttonRectangle);
             this.panel2.Controls.Add(this.buttonSquare);
@@ -209,9 +211,9 @@
             this.panel2.Controls.Add(this.buttonColor);
             this.panel2.Controls.Add(this.buttonErase);
             this.panel2.Controls.Add(this.buttonLine);
-            this.panel2.Location = new System.Drawing.Point(417, 40);
+            this.panel2.Location = new System.Drawing.Point(356, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(925, 73);
+            this.panel2.Size = new System.Drawing.Size(986, 73);
             this.panel2.TabIndex = 4;
             // 
             // buttonCurve
@@ -221,7 +223,7 @@
             this.buttonCurve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCurve.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonCurve.Image = global::drawing.Properties.Resources.curve;
-            this.buttonCurve.Location = new System.Drawing.Point(323, 3);
+            this.buttonCurve.Location = new System.Drawing.Point(384, 3);
             this.buttonCurve.Name = "buttonCurve";
             this.buttonCurve.Size = new System.Drawing.Size(66, 66);
             this.buttonCurve.TabIndex = 17;
@@ -236,7 +238,7 @@
             this.buttonRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRectangle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonRectangle.Image = global::drawing.Properties.Resources.rectangle;
-            this.buttonRectangle.Location = new System.Drawing.Point(611, 3);
+            this.buttonRectangle.Location = new System.Drawing.Point(672, 3);
             this.buttonRectangle.Name = "buttonRectangle";
             this.buttonRectangle.Size = new System.Drawing.Size(66, 66);
             this.buttonRectangle.TabIndex = 16;
@@ -251,7 +253,7 @@
             this.buttonSquare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSquare.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonSquare.Image = global::drawing.Properties.Resources.shape_square;
-            this.buttonSquare.Location = new System.Drawing.Point(539, 3);
+            this.buttonSquare.Location = new System.Drawing.Point(600, 3);
             this.buttonSquare.Name = "buttonSquare";
             this.buttonSquare.Size = new System.Drawing.Size(66, 66);
             this.buttonSquare.TabIndex = 15;
@@ -266,7 +268,7 @@
             this.buttonEllipse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEllipse.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonEllipse.Image = global::drawing.Properties.Resources.ellipse;
-            this.buttonEllipse.Location = new System.Drawing.Point(467, 3);
+            this.buttonEllipse.Location = new System.Drawing.Point(528, 3);
             this.buttonEllipse.Name = "buttonEllipse";
             this.buttonEllipse.Size = new System.Drawing.Size(66, 66);
             this.buttonEllipse.TabIndex = 14;
@@ -281,7 +283,7 @@
             this.buttonCircle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCircle.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonCircle.Image = global::drawing.Properties.Resources.circle;
-            this.buttonCircle.Location = new System.Drawing.Point(395, 3);
+            this.buttonCircle.Location = new System.Drawing.Point(456, 3);
             this.buttonCircle.Name = "buttonCircle";
             this.buttonCircle.Size = new System.Drawing.Size(66, 66);
             this.buttonCircle.TabIndex = 13;
@@ -296,7 +298,7 @@
             this.buttonBrush.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBrush.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonBrush.Image = global::drawing.Properties.Resources.brush2;
-            this.buttonBrush.Location = new System.Drawing.Point(856, 3);
+            this.buttonBrush.Location = new System.Drawing.Point(917, 3);
             this.buttonBrush.Name = "buttonBrush";
             this.buttonBrush.Size = new System.Drawing.Size(66, 66);
             this.buttonBrush.TabIndex = 12;
@@ -341,7 +343,7 @@
             this.buttonPencil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPencil.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonPencil.Image = global::drawing.Properties.Resources.pencil;
-            this.buttonPencil.Location = new System.Drawing.Point(784, 3);
+            this.buttonPencil.Location = new System.Drawing.Point(845, 3);
             this.buttonPencil.Name = "buttonPencil";
             this.buttonPencil.Size = new System.Drawing.Size(66, 66);
             this.buttonPencil.TabIndex = 7;
@@ -371,7 +373,7 @@
             this.buttonErase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonErase.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonErase.Image = global::drawing.Properties.Resources.eraser;
-            this.buttonErase.Location = new System.Drawing.Point(712, 3);
+            this.buttonErase.Location = new System.Drawing.Point(773, 3);
             this.buttonErase.Name = "buttonErase";
             this.buttonErase.Size = new System.Drawing.Size(66, 66);
             this.buttonErase.TabIndex = 2;
@@ -386,7 +388,7 @@
             this.buttonLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLine.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLine.Image = global::drawing.Properties.Resources.line;
-            this.buttonLine.Location = new System.Drawing.Point(251, 3);
+            this.buttonLine.Location = new System.Drawing.Point(312, 3);
             this.buttonLine.Name = "buttonLine";
             this.buttonLine.Size = new System.Drawing.Size(66, 66);
             this.buttonLine.TabIndex = 1;
@@ -408,6 +410,18 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
+            // 
+            // buttonCurrentColor
+            // 
+            this.buttonCurrentColor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCurrentColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrentColor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonCurrentColor.Location = new System.Drawing.Point(219, 3);
+            this.buttonCurrentColor.Name = "buttonCurrentColor";
+            this.buttonCurrentColor.Size = new System.Drawing.Size(66, 66);
+            this.buttonCurrentColor.TabIndex = 18;
+            this.buttonCurrentColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonCurrentColor.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -466,6 +480,7 @@
         private System.Windows.Forms.Button buttonSquare;
         private System.Windows.Forms.Button buttonRectangle;
         private System.Windows.Forms.Button buttonCurve;
+        private System.Windows.Forms.Button buttonCurrentColor;
     }
 }
 
