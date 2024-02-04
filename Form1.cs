@@ -299,63 +299,63 @@ namespace drawing
             mouseMoving = false;
             points.Add(mouseEnd);
 
-            if (operation == "line")
+            switch (operation)
             {
-                graphics.DrawLine(pen, startX, startY, endX, endY);
-                points.Clear();
-            }
-            if (operation == "txt")
-            {
-                var textFont = font;
-                Brush textBrush = new SolidBrush(color);
-                graphics.DrawString(text, textFont, textBrush, textBoxPoint);
-                points.Clear();
-            }
-            if (operation == "ellipse")
-            {
-                graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
-                points.Clear();
-            }
-            if (operation == "circle")
-            {
-                int width = Math.Abs(startX - endX);
-                int height = Math.Abs(startY - endY);
-                if (width > height)
-                {
-                    endX = startX + height;
-                }
-                else
-                {
-                    endY = startY + width;
-                }
-                graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
-                points.Clear();
-            }
-            if (operation == "rect")
-            {
-                graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
-                points.Clear();
-            }
-            if (operation == "square")
-            {
-                int width = Math.Abs(startX - endX);
-                int height = Math.Abs(startY - endY);
-                if (width > height)
-                {
-                    endX = startX + height;
-                }
-                else
-                {
-                    endY = startY + width;
-                }
-                graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
-                points.Clear();
-            }
-            if (operation == "curve" && points.Count >= 3)
-            {
-                
-                graphics.DrawCurve(pen, points.ToArray());
-                points.Clear();
+                case "line":
+                    graphics.DrawLine(pen, startX, startY, endX, endY);
+                    points.Clear();
+                    break;
+                case "txt":
+                    var textFont = font;
+                    Brush textBrush = new SolidBrush(color);
+                    graphics.DrawString(text, textFont, textBrush, textBoxPoint);
+                    points.Clear();
+                    break;
+                case "ellipse":
+                    graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
+                    points.Clear();
+                    break;
+                case "circle":
+                    int width = Math.Abs(startX - endX);
+                    int height = Math.Abs(startY - endY);
+                    if (width > height)
+                    {
+                        endX = startX + height;
+                    }
+                    else
+                    {
+                        endY = startY + width;
+                    }
+                    graphics.DrawEllipse(pen, startX, startY, endX - startX, endY - startY);
+                    points.Clear();
+                    break;
+                case "rect":
+                    graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
+                    points.Clear();
+                    break;
+                case "square":
+                    int width = Math.Abs(startX - endX);
+                    int height = Math.Abs(startY - endY);
+                    if (width > height)
+                    {
+                        endX = startX + height;
+                    }
+                    else
+                    {
+                        endY = startY + width;
+                    }
+                    graphics.DrawRectangle(pen, startX, startY, endX - startX, endY - startY);
+                    points.Clear();
+                    break;
+                case "curve":
+                    if (points.Count >= 3)
+                    {
+                        graphics.DrawCurve(pen, points.ToArray());
+                        points.Clear();
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 
