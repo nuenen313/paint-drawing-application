@@ -301,8 +301,10 @@ namespace drawing
         {
             mouseMoving = false;
             points.Add(mouseEnd);
+
             int width = Math.Abs(startX - endX);
             int height = Math.Abs(startY - endY);
+
             switch (operation)
             {
                 case "line":
