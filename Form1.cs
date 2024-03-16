@@ -23,7 +23,7 @@ namespace drawing
         Font font;
         Point mouseStart, mouseEnd;
         int x, y, startX, endX, startY, endY;
-        string operation = "pencil";
+        string operation;
         string text;
         Point textBoxPoint;
         bool isCollapsed;
@@ -53,6 +53,9 @@ namespace drawing
             buttonCurrentColor.BackColor = Color.Black;
 
             font = new Font("Century Gothic", 10);
+
+            this.ActiveControl = buttonPencil;
+            buttonPencil_Click(buttonPencil, EventArgs.Empty);
         }
 
         private void buttonColor_Click(object sender, EventArgs e)
@@ -298,7 +301,8 @@ namespace drawing
         {
             mouseMoving = false;
             points.Add(mouseEnd);
-
+            int width = Math.Abs(startX - endX);
+            int height = Math.Abs(startY - endY);
             switch (operation)
             {
                 case "line":
@@ -316,8 +320,6 @@ namespace drawing
                     points.Clear();
                     break;
                 case "circle":
-                    int width = Math.Abs(startX - endX);
-                    int height = Math.Abs(startY - endY);
                     if (width > height)
                     {
                         endX = startX + height;
@@ -334,8 +336,6 @@ namespace drawing
                     points.Clear();
                     break;
                 case "square":
-                    int width = Math.Abs(startX - endX);
-                    int height = Math.Abs(startY - endY);
                     if (width > height)
                     {
                         endX = startX + height;
